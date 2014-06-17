@@ -3,6 +3,8 @@ from __future__ import unicode_literals, absolute_import
 
 import os
 key = os.environ['KOMBU_FERNET_KEY']
+ttl = os.environ.get('KOMBU_FERNET_TTL', 60)
+enforce_ttl = os.environ.get('KOMBU_FERNET_ENFORCE_TTL', '').lower() == 'true'
 
 class InvalidToken(Exception):
     pass
@@ -14,6 +16,9 @@ except ImportError:
         import fernet
     except ImportError:
         raise RuntimeError("Either cryptography or fernet-py is required")
+
+    fernet.Configuration.enforce_ttl = enforce_ttl
+    fernet.Configuration.ttl = ttl
 
     def fernet_encode(func):
         def inner(message):

@@ -1,0 +1,2 @@
+-r test-base.txt
+git+https://github.com/heroku/fernet-py.git

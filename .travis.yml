@@ -1,0 +1,10 @@
+language: python
+python:
+  - "2.7"
+  - "2.6"
+env:
+  - PIP_REQUIREMENTS="test-cryptography.txt"
+  - PIP_REQUIREMENTS="test-fernet-py.txt"
+install:
+  - "pip install -q -r requirements/$PIP_REQUIREMENTS"
+script: python setup.py test

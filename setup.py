@@ -43,6 +43,7 @@ setup(
     install_requires=requires,
     license=license,
     zip_safe=False,
+    test_suite='tests',
     classifiers=(
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',

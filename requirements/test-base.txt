@@ -1,0 +1,3 @@
+-r default.txt
+PyYAML==3.11
+msgpack-python==0.4.2

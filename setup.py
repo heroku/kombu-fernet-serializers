@@ -22,7 +22,7 @@ packages = [
 requires = [
     'anyjson>=0.3.3',
     'kombu>=3.0.16',
-    'cryptography',
+    'cryptography>=0.6.1',
 ]
 
 with open('README.rst') as f:

@@ -44,7 +44,7 @@ else:
     def fernet_decode(func):
         def inner(encoded_message):
             try:
-                message = fernet.decrypt(encoded_message)
+                message = fernet.decrypt(encoded_message.encode('utf-8'))
             except CInvalidToken:
                 raise InvalidToken
             return func(message)

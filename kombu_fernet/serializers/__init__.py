@@ -7,7 +7,7 @@ from cryptography.fernet import Fernet, MultiFernet
 fernet = Fernet(os.environ['KOMBU_FERNET_KEY'])
 fallback_fernet = None
 try:
-    fallback_fernet = Fernet(os.environ['OLD_KOMBU_FERNET_KEY'])
+    fallback_fernet = Fernet(os.environ['KOMBU_FERNET_KEY_PREVIOUS'])
 except KeyError:
     pass
 else:

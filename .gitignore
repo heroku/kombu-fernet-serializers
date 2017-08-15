@@ -1,4 +1,10 @@
+*.pyc
 env
 build
 dist
 *.egg-info
+.cache/*
+.idea/*
+*.iml
+.tox/
+*__pycache__/*

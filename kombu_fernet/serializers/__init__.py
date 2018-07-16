@@ -2,6 +2,7 @@
 from __future__ import unicode_literals, absolute_import
 
 import os
+import six
 from cryptography.fernet import Fernet, MultiFernet
 
 fernet = Fernet(os.environ.get('KOMBU_FERNET_KEY') or Fernet.generate_key())
@@ -16,14 +17,25 @@ else:
 
 def fernet_encode(func):
     def inner(message):
-        return fernet.encrypt(func(message))
+        message = func(message)
+        if isinstance(message, six.text_type):
+            message = message.encode('utf-8')
+        return fernet.encrypt(message)
     return inner
 
 
 def fernet_decode(func):
     def inner(encoded_message):
-        if isinstance(encoded_message, unicode):
+        if isinstance(encoded_message, six.text_type):
             encoded_message = encoded_message.encode('utf-8')
         message = fernet.decrypt(encoded_message)
+        return func(message)
+    return inner
+
+
+def force_text(func):
+    def inner(message):
+        if isinstance(message, six.binary_type):
+            message = message.decode('utf-8')
         return func(message)
     return inner

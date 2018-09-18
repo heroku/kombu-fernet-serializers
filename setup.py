@@ -21,14 +21,13 @@ packages = [
 
 requires = [
     'anyjson>=0.3.3',
-    'kombu>=3.0.16',
-    'cryptography>=0.7',
+    'kombu>=3.0.37',
+    'cryptography>=2.0.2',
+    'six>=1.10.0',
 ]
 
 with open('README.rst') as f:
     readme = f.read()
-with open('LICENSE') as f:
-    license = f.read()
 
 setup(
     name='kombu-fernet-serializers',
@@ -42,7 +41,7 @@ setup(
     package_data={'': ['LICENSE']},
     include_package_data=True,
     install_requires=requires,
-    license=license,
+    license='MIT',
     zip_safe=False,
     classifiers=(
         'Development Status :: 5 - Production/Stable',
@@ -51,6 +50,9 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ),
     entry_points={
         'kombu.serializers': [

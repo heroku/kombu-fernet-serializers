@@ -1,4 +1,4 @@
 anyjson==0.3.3
 kombu==3.0.37
-cryptography==2.0.2
+cryptography==3.2
 six==1.10.0

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals, absolute_import
 
-import anyjson as _json
+import json as _json
 
 from . import fernet_encode, fernet_decode, force_text
 

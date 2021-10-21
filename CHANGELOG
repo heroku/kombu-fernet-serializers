@@ -1,0 +1,6 @@
+0.2.0 -- 2021-10-21
+-------------------
+
+* Drop anyjson dependency
+* Drop support for Python 2.7, 3.4, and 3.5
+* Add support for Python 3.7, 3.8, 3.9, 3.10

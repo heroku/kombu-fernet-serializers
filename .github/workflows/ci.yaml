@@ -1,0 +1,38 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [main]
+    tags:
+  pull_request:
+
+jobs:
+  main:
+    strategy:
+      matrix:
+        include:
+        # linux
+        - os: ubuntu-latest
+          python: 3.6
+          toxenv: py
+        - os: ubuntu-latest
+          python: 3.7
+          toxenv: py
+        - os: ubuntu-latest
+          python: 3.8
+          toxenv: py
+        - os: ubuntu-latest
+          python: 3.9
+          toxenv: py
+        - os: ubuntu-latest
+          python: '3.10.0'
+          toxenv: py
+        # windows
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python }}
+    - run: python -mpip install --upgrade setuptools pip tox virtualenv
+    - run: tox -e ${{ matrix.toxenv }}

@@ -20,8 +20,7 @@ packages = [
 ]
 
 requires = [
-    'anyjson>=0.3.3',
-    'kombu>=3.0.37',
+    'kombu>=4.0.0',
     'cryptography>=2.0.2',
     'six>=1.10.0',
 ]

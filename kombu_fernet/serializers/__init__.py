@@ -6,7 +6,7 @@ import six
 from cryptography.fernet import Fernet, MultiFernet
 
 
-fernet = Fernet(os.environ['KOMBU_FERNET_KEY'])
+fernet = Fernet(os.environ.get('KOMBU_FERNET_KEY') or Fernet.generate_key())
 fallback_fernet = None
 try:
     fallback_fernet = Fernet(os.environ['KOMBU_FERNET_KEY_PREVIOUS'])

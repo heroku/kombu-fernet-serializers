@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals, absolute_import
-
+from decouple import config
 import os
 import six
 from cryptography.fernet import Fernet, MultiFernet
 
 
-fernet = Fernet(os.environ.get('KOMBU_FERNET_KEY') or Fernet.generate_key())
+fernet = Fernet(config('KOMBU_FERNET_KEY'))
 fallback_fernet = None
 try:
     fallback_fernet = Fernet(os.environ['KOMBU_FERNET_KEY_PREVIOUS'])

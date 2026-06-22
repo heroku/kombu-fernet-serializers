@@ -9,19 +9,22 @@ on:
 jobs:
   main:
     strategy:
+      fail-fast: false
       matrix:
         include:
         # linux
-        - os: ubuntu-latest
-          python: '3.9'
-          toxenv: py
         - os: ubuntu-latest
           python: '3.10'
           toxenv: py
         - os: ubuntu-latest
           python: '3.11'
           toxenv: py
-        # windows
+        - os: ubuntu-latest
+          python: '3.12'
+          toxenv: py
+        - os: ubuntu-latest
+          python: '3.13'
+          toxenv: py
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v5

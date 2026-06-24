@@ -1,3 +1,4 @@
 kombu==4.6.11
 cryptography==3.4.8
 six==1.10.0
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability

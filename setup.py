@@ -29,7 +29,7 @@ setup(
     url="https://github.com/heroku/kombu-fernet-serializers",
     packages=packages,
     package_data={"": ["LICENSE", "CHANGELOG"]},
-    requires_python=">=3.6",
+    python_requires=">=3.10",
     include_package_data=True,
     install_requires=requires,
     license="MIT",
@@ -41,11 +41,8 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
     ),
     entry_points={
         "kombu.serializers": [
